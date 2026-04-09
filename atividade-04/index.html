@@ -14,5 +14,26 @@
       <p>HEBERT OLIVEIRA BRAGA</p>
     </div>
     <div id="div-ordenado"></div>
+
+    <script>
+      let lista = document
+        .getElementById("div-dados")
+        .getElementsByTagName("p");
+
+      let listaOrdenada = [];
+
+      for (let i = 0; i < lista.length; i++) {
+        listaOrdenada.push(lista[i].textContent);
+      }
+
+      listaOrdenada = listaOrdenada.sort();
+      let divOrdenado = document.getElementById("div-ordenado");
+
+      for (let i = 0; i < listaOrdenada.length; i++) {
+        let p = document.createElement("p");
+        p.textContent = listaOrdenada[i];
+        divOrdenado.appendChild(p);
+      }
+    </script>
   </body>
 </html>
