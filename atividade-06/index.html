@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 6</title>
+</head>
+<body>
+    <!-- Faça uma página com uma caixa de texto livre. Toda vez que alguém
+    digitar “SPFC” automaticamente você deve exibir a mensagem (alert)
+    “Melhor time do Brasil” -->
+    <input type="text" onchange="checkText(this)"/>
+
+    <script type="text/javascript">
+        function checkText(input) {
+            console.log(input.value);
+            if (input.value === 'SPFC' || input.value === 'spfc') {
+                alert('Melhor time do Brasil');
+                return;
+            }
+            return;
+        }
+    </script>
+</body>
+</html>
