@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 5</title>
+</head>
+<body onresize="onResize()">
+    <!-- Faça uma página que exiba um conteúdo qualquer e também exiba um contador 
+     que mostre a quantidade de vezes que o tamanho da página foi alterado. -->
+    <main>
+        <h1>Wow! <span id="count">0</span></h1>
+    </main>
+
+    <script type="text/javascript">
+        let counter = 0;
+        let span = document.getElementById('count');
+        function onResize() {
+            counter++;
+            span.textContent = counter;
+        }
+    </script>
+</body>
+</html>
