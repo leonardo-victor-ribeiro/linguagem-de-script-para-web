@@ -1,0 +1,248 @@
+<script type="text/javascript">
+  /**
+    1. Crie uma função que receba três parâmetros: frase, inicio e fim. O parâmetro frase deve ser
+       do tipo string e os demais parâmetros do tipo inteiro. Desta forma, considere o que se segue:
+       a. Emita um alerta (alert) se tais parâmetors não forem dos tipos especificados;
+       b. Os valores dos parâmetros inicio e fim não podem ser negativos. Emitir um alerta caso
+       isso ocorra.
+       c. O valor do fim não pode ser menor que o do início. Emitir um alerta caso esta situação
+       ocorra.
+       d. O valor dos parâmetros início e fim não podem conter valores que sejam superiores ao
+       tamanho da frase informada. Emitir um alerta caso isto ocorra.
+       e. Retornar a substring compreendida entre o intervalo inicio e fim.
+  */
+
+  //!1
+  function f(frase, inicio, fim) {
+    // a
+    if (
+      typeof frase !== "string" ||
+      !Number.isInteger(inicio) ||
+      !Number.isInteger(fim)
+    ) {
+      alert("Parametros devem ter tipos especificados");
+      return;
+    }
+
+    // b
+    if (inicio < 0 || fim < 0) {
+      alert("Início/fim não devem ser negativos");
+      return;
+    }
+
+    // c
+    if (fim < inicio) {
+      alert("Fim não deve ser menor que o início");
+      return;
+    }
+
+    // d
+    if (inicio > frase.length || fim > frase.length) {
+      alert("Inicio/Fim não deve ser maior que a frase");
+      return;
+    }
+
+    // e
+    return frase.substring(inicio, fim);
+  }
+
+  /**
+   * Implemente uma função que receba como parâmetro uma frase. Além disso, esta função deve
+contar com outros dois parâmtros chamados substituir e por. O funcionamento desta função
+deve ser:
+a. Emitir um alerta com uma mensagem de erro caso a frase esteja em branco;
+b. Emitir um alerta caso a frase contenha menos de 3 palavras;
+c. Emitir um alerta se os parâmetros susbstituir e por forem vazios (veja que vazio é
+diferente de em branco).
+d. Aplicar na frase a susbstituição de ocorrências com o valor de substituir pelo valor
+contido em por.
+e. Imprimir a nova frase com todas as letras em maiúsculo
+   */
+
+  function substituirNaFrase(frase, substituir, por) {
+    if (!frase || frase.trim() === "") {
+      alert("Erro: A frase não pode estar em branco.");
+      return null;
+    }
+
+    let numeroDePalavras = frase.trim().split(/\s+/).length;
+    if (numeroDePalavras < 3) {
+      alert("Erro: A frase deve conter pelo menos 3 palavras.");
+      return null;
+    }
+
+    if (
+      substituir === "" ||
+      substituir === null ||
+      substituir === undefined ||
+      por === "" ||
+      por === null ||
+      por === undefined
+    ) {
+      alert("Erro: Os parâmetros 'substituir' e 'por' não podem ser vazios.");
+      return null;
+    }
+
+    let novaFrase = frase.split(substituir).join(por);
+
+    let fraseFinal = novaFrase.toUpperCase();
+    console.log(fraseFinal);
+
+    return fraseFinal;
+  }
+
+  /** 3. Implemente uma função que receba dois parâmetros: termo1 e termo2. Essa função deve
+retornar verdadeiro se o valor de termo1 e termo2 são iguais, caso contrário, retorne falso.
+Para isso, considere que sua função não deve ser case sensitive (ou seja, não deve diferenciar
+maiúsculos de minúsculos). Além disso, não aceite que os parâmetos informados estejam em
+branco.
+**/
+
+  function compararTermos(termo1, termo2) {
+    if (!termo1 || !termo2 || termo1.trim() === "" || termo2.trim() === "") {
+      return false;
+    }
+
+    return termo1.toLowerCase() === termo2.toLowerCase();
+  }
+
+  /** 4. Crie uma função que receba uma data (tipo da dados date) e retorne uma string com a data
+formatada em “DD/MM/YYYY”, por exemplo, 20/10/2020
+ **/
+
+  function formatarData(dataAlvo) {
+    if (!(dataAlvo instanceof Date) || isNaN(dataAlvo)) {
+      throw new TypeError("O parâmetro deve ser um objeto Date válido.");
+    }
+
+    const dia = String(dataAlvo.getDate()).padStart(2, "0");
+
+    const mes = String(dataAlvo.getMonth() + 1).padStart(2, "0");
+
+    const ano = dataAlvo.getFullYear();
+
+    return `${dia}/${mes}/${ano}`;
+  }
+
+  /* 5. Crie uma função que receba uma data como parâmetro e retorne uma string no formato DD
+MMM YYYY, por exemplo, 20 Out 2020.**/
+
+  function formatarDataMesCurto(dataAlvo) {
+    if (!(dataAlvo instanceof Date) || isNaN(dataAlvo)) {
+      throw new TypeError("O parâmetro deve ser um objeto Date válido.");
+    }
+
+    const meses = [
+      "Jan",
+      "Fev",
+      "Mar",
+      "Abr",
+      "Mai",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Set",
+      "Out",
+      "Nov",
+      "Dez",
+    ];
+
+    const dia = String(dataAlvo.getDate()).padStart(2, "0");
+
+    const mes = meses[dataAlvo.getMonth()];
+
+    const ano = dataAlvo.getFullYear();
+
+    return `${dia} ${mes} ${ano}`;
+  }
+
+  /** 6. Crie uma função que receba uma string no formato “DD/MM/YYYY” que corresponde à data
+de nascimento de uma pessoa e retorne o dia da semana que ela nasceu. Qualquer problema
+no parâmetro enviado, deve ser validado, como por exemplo, formato inválido. */
+  function diaDaSemanaNascimento(dataNascimentoStr) {
+    if (typeof dataNascimentoStr !== "string") {
+      throw new TypeError("O parâmetro deve ser uma string.");
+    }
+
+    const regexData = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+    const partesData = dataNascimentoStr.match(regexData);
+
+    if (!partesData) {
+      throw new Error("Formato incorreto. Utilize estritamente 'DD/MM/YYYY'.");
+    }
+
+    const dia = parseInt(partesData[1], 10);
+    const mes = parseInt(partesData[2], 10);
+    const ano = parseInt(partesData[3], 10);
+
+    const dataValida = new Date(ano, mes - 1, dia);
+
+    if (
+      dataValida.getFullYear() !== ano ||
+      dataValida.getMonth() !== mes - 1 ||
+      dataValida.getDate() !== dia
+    ) {
+      throw new Error(
+        "Data inválida. Verifique os dias do mês e anos bissextos."
+      );
+    }
+
+    const diasSemana = [
+      "Domingo",
+      "Segunda-feira",
+      "Terça-feira",
+      "Quarta-feira",
+      "Quinta-feira",
+      "Sexta-feira",
+      "Sábado",
+    ];
+
+    return diasSemana[dataValida.getDay()];
+  }
+
+  /** 8. Utilizando Expressão Regular, faça uma função que receba uma string, chamada CPF, por
+parâmetro e retorna true caso o CPF seja válido e false se o CPF seja inválido. A string deve
+seguir o seguinte padrão ddd.ddd.ddd-dd */
+  function diaDaSemanaNascimento(dataNascimentoStr) {
+    if (typeof dataNascimentoStr !== "string") {
+      throw new TypeError("O parâmetro deve ser uma string.");
+    }
+
+    // Expressão Regular (Regex) para garantir que o formato é estritamente DD/MM/YYYY
+    const regexData = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+    const partesData = dataNascimentoStr.match(regexData);
+
+    if (!partesData) {
+      throw new Error("Formato incorreto. Utilize estritamente 'DD/MM/YYYY'.");
+    }
+
+    // Extrai os valores numéricos
+    const dia = parseInt(partesData[1], 10);
+    const mes = parseInt(partesData[2], 10);
+    const ano = parseInt(partesData[3], 10);
+
+    const dataValida = new Date(ano, mes - 1, dia);
+
+    if (
+      dataValida.getFullYear() !== ano ||
+      dataValida.getMonth() !== mes - 1 ||
+      dataValida.getDate() !== dia
+    ) {
+      throw new Error(
+        "Data inválida. Verifique os dias do mês e anos bissextos."
+      );
+    }
+
+    const diasSemana = [
+      "Domingo",
+      "Segunda-feira",
+      "Terça-feira",
+      "Quarta-feira",
+      "Quinta-feira",
+      "Sexta-feira",
+      "Sábado",
+    ];
+
+    return diasSemana[dataValida.getDay()];
+  }
+</script>
