@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 05</title>
+  </head>
+  <body></body>
+
+  <script>
+    const states = [
+      {
+        state: "São Paulo",
+        cities: ["São Paulo", "Jales", "São José do Rio Preto"],
+      },
+      {
+        state: "Minas Gerais",
+        cities: ["Uberaba", "Uberlândia", "Belo Horizonte"],
+      },
+      {
+        state: "Rio de Janeiro",
+        cities: ["Rio de Janeiro", "Niterói", "Petrópolis"],
+      },
+      {
+        state: "Espírito Santo",
+        cities: ["Vitória", "Guarapari", "Domingos Martins"],
+      },
+    ];
+
+    const statesComboBox = CreateComboBox("Escolha uma estado:", states);
+    const citiesComboBox = window.document.createElement("select");
+    citiesComboBox.style.display = "none";
+    const header = window.document.createElement("h1");
+    header.textContent = "Exercise 5";
+
+    const body = window.document.querySelector("body");
+    body.append(header, statesComboBox, citiesComboBox);
+
+    statesComboBox.addEventListener("change", () => {
+      citiesComboBox.style.display = "none";
+      if (statesComboBox.value === "") {
+        return;
+      }
+      const cities = states[parseInt(statesComboBox.value)].cities;
+      const citiesOptions = cities.map((city) =>
+        CreateOption(city, cities.indexOf(city))
+      );
+      citiesComboBox.replaceChildren(...citiesOptions);
+      citiesComboBox.style.display = "block";
+    });
+
+    function CreateOption(text, index) {
+      let option = document.createElement("option");
+      option.textContent = text;
+      option.value = index;
+      return option;
+    }
+
+    function CreateComboBox(text, elements) {
+      const select = window.document.createElement("select");
+
+      let options = [];
+      options.push(CreateOption(text, ""));
+      elements.forEach((element) => {
+        options.push(CreateOption(element.state, states.indexOf(element)));
+      });
+      select.replaceChildren(...options);
+      return select;
+    }
+  </script>
+</html>

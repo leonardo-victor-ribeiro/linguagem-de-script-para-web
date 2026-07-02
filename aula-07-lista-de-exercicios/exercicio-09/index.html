@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 09</title>
+  </head>
+  <body></body>
+
+  <script>
+    const body = window.document.querySelector("body");
+
+    addRemoveButton();
+    addButton();
+
+    function addButton() {
+      const button = window.document.createElement("button");
+      const count = window.document.querySelectorAll("button").length;
+      button.textContent = `Botão ${count}`;
+
+      button.addEventListener("click", addButton);
+
+      body.append(button);
+    }
+
+    function addRemoveButton() {
+      const button = window.document.createElement("button");
+      button.textContent = "Remove Button";
+      button.style.display = "inline box";
+
+      button.addEventListener("click", RemoveLastButton);
+
+      body.append(button);
+    }
+
+    function RemoveLastButton() {
+      const buttons = window.document.querySelectorAll("button");
+      if (buttons.length === 2) {
+        alert("Resta apenas um botão. Não é possível remover.");
+        return;
+      }
+      body.removeChild(buttons[buttons.length - 1]);
+    }
+  </script>
+</html>

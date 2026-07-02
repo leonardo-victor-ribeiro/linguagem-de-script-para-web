@@ -108,11 +108,29 @@ console.log(a);
 // 11. Contar ocorrências de um valor: Dado o array ["maçã", "banana", "maçã", "laranja"], use o
 // reduce para contar quantas vezes a palavra "maçã" aparece.
 
+const listaDeFrutas = ["maçã", "banana", "maçã", "laranja"];
+let resultado = listaDeFrutas.reduce(contadorDeFrutas, 0);
+
+function contadorDeFrutas(total, value) {
+  if (value === 'maçã') {
+    return total + 1;
+  }
+  return total;
+}
+console.log(resultado);
 // 12. Concatenar palavras em uma frase: Dado o array ["Eu", "gosto", "de", "programar"], use o
 // reduce para criar a frase completa: "Eu gosto de programar".
+
+const frase = ["Eu", "gosto", "de", "programar"];
+let novaFrase = frase.reduce((resultado, palavra) => resultado + " " + palavra);
+console.log(novaFrase);
 
 // 13. Somar os salários: Dado um array de objetos de funcionários com nome e salario como
 // [ { nome: "Maria", salario: 2000 }, { nome: "José", salario: 1500 }, { nome: "Ana", salario: 3000 } ],
 // use o reduce para calcular o total dos salários
+
+const listaFuncionarios = [{ nome: "Maria", salario: 2000 }, { nome: "José", salario: 1500 }, { nome: "Ana", salario: 3000 }];
+let totalSalarios = listaFuncionarios.reduce((total, funcionario) => total + funcionario.salario, 0);
+console.log(totalSalarios);
 
 // Interface

@@ -1,0 +1,30 @@
+<script>
+  const a = window.document.createElement("a");
+  a.href = "";
+
+  const li1 = window.document.createElement("li");
+  const li2 = window.document.createElement("li");
+  const li3 = window.document.createElement("li");
+  li1.appendChild(a);
+
+  const ul = window.document.createElement("ul");
+  ul.append(li1, li2, li3);
+
+  const nav = window.document.createElement("nav");
+  nav.append(ul);
+
+  const header = window.document.createElement("header");
+  const article = window.document.createElement("article");
+  const section = window.document.createElement("section");
+  section.append(header, article);
+
+  const div = window.document.createElement("div");
+  const aside = window.document.createElement("aside");
+  aside.append(div);
+
+  const body = window.document.createElement("body");
+  body.append(nav, section, aside);
+
+  const html = window.document.querySelector("html");
+  html.append(body);
+</script>

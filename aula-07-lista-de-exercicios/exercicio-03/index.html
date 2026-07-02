@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 03</title>
+  </head>
+  <body></body>
+
+  <script>
+    const p = window.document.createElement("p");
+    p.textContent = "Aula de JavaScript";
+
+    const body = window.document.querySelector("body");
+    body.appendChild(p);
+
+    p.addEventListener("click", changeColor);
+
+    function changeColor() {
+      const colors = [
+        "red",
+        "yellow",
+        "blue",
+        "green",
+        "purple",
+        "black",
+        "white",
+        "pink",
+        "brown",
+        "gray",
+      ];
+      const num = Math.floor(10 * Math.random());
+      p.style.color = colors[num];
+    }
+  </script>
+</html>

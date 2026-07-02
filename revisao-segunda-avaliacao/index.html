@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MINERADOR DE TEXTO DA TURMA LSW - IFTM</title>
+  </head>
+  <body>
+    <header>
+      <h1>Minerador de Texto da Turma LSW - IFTM</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Digite o seu texto:</h2>
+        <textarea name="texto" id="texto"></textarea>
+        <h2>Estatística:</h2>
+        <div id="estatistica"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Desenvolvido por Leonardo Victor Ribeiro</p>
+    </footer>
+
+    <script type="text/javascript">
+      const textArea = document.getElementById("texto");
+      const divEstatistica = document.getElementById("estatistica");
+
+      textArea.addEventListener("change", (event) => {
+        const ul = document.createElement("ul");
+
+        const liQtdPalavras = document.createElement("li");
+        liQtdPalavras.textContent = `Quantidade de palavras: ${contarPalavras(
+          textArea.value
+        )}`;
+        ul.append(liQtdPalavras);
+
+        const liQtdLetras = document.createElement("li");
+        liQtdLetras.textContent = `Quantidade de letras: ${quantidadeLetras(
+          textArea.value
+        )}`;
+        ul.append(liQtdLetras);
+
+        const liFrequencia = document.createElement("li");
+        liFrequencia.textContent = `Frequência de palavras:`;
+        ul.append(liFrequencia);
+
+        const listaQtdPalavra = document.createElement("ul");
+        for (const [palavra, contagem] of frequenciaPalavras(
+          textArea.value
+        ).entries()) {
+          let li = document.createElement("li");
+          li.textContent = `${palavra}: ${contagem}`;
+          listaQtdPalavra.append(li);
+        }
+
+        ul.append(listaQtdPalavra);
+
+        divEstatistica.replaceChildren(ul);
+      });
+
+      function contarPalavras(texto) {
+        const palavras = texto.trim().split(/\s+/);
+        return palavras[0] === "" ? 0 : palavras.length;
+      }
+
+      function quantidadeLetras(texto) {
+        const quantidade = texto.replace(/[^a-zA-ZÀ-ÿ]/g, "").length;
+        return quantidade;
+      }
+
+      function frequenciaPalavras(texto) {
+        const txtMinusculo = texto.toLowerCase();
+        const palavras = txtMinusculo.match(/\b\w+\b/g) || [];
+
+        const frequencia = new Map();
+        for (const palavra of palavras) {
+          frequencia.set(palavra, (frequencia.get(palavra) || 0) + 1);
+        }
+
+        return frequencia;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 06</title>
+  </head>
+  <body></body>
+
+  <script>
+    function CreateDiv(
+      width,
+      height,
+      borderRadius,
+      backgroundColor,
+      className
+    ) {
+      const div = window.document.createElement("div");
+      div.style.width = width;
+      div.style.height = width;
+      div.style.borderRadius = borderRadius;
+      div.style.backgroundColor = backgroundColor;
+      div.setAttribute("class", className);
+
+      div.addEventListener("mouseover", changeSemaphoreStyleOn);
+      div.addEventListener("mouseleave", changeSemaphoreStyleOff);
+
+      return div;
+    }
+
+    function changeSemaphoreStyleOn() {
+      if (this.className === "alert") {
+        this.style.backgroundColor = "red";
+      }
+
+      if (this.className === "warning") {
+        this.style.backgroundColor = "orange";
+      }
+
+      if (this.className === "free") {
+        this.style.backgroundColor = "green";
+      }
+    }
+
+    function changeSemaphoreStyleOff() {
+      this.style.backgroundColor = "gray";
+    }
+
+    const div1 = CreateDiv("100px", "100px", "50px", "gray", "alert");
+    const div2 = CreateDiv("100px", "100px", "50px", "gray", "warning");
+    const div3 = CreateDiv("100px", "100px", "50px", "gray", "free");
+
+    const body = window.document.querySelector("body");
+    body.append(div1, div2, div3);
+  </script>
+</html>
