@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+}
+
+header {
+  background-color: #0a6b6b;
+  text-align: center;
+  padding: 18px 0;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  background-color: #f7f7f7;
+  padding: 18px 0;
+}
+
+img {
+  max-width: 30%;
+}
+
+main {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.btn-group {
+  padding: 8px 0;
+}

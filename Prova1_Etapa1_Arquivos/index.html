@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P1 - Parte 1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body onload="limpar()">
+    <header>
+      <h1>Linguagem de Script para Web</h1>
+      <h2>Primeira Avaliação - 14/05/2026</h2>
+      <h3>Aluno: Leonardo Victor Ribeiro</h3>
+    </header>
+    <main>
+      <div class="btn-group">
+        <button id="filmes" onclick="btnFilmes(this, 'green')">Filmes</button>
+        <button id="series" onclick="btnSeries(this, 'green')">Séries</button>
+      </div>
+      <div id="tbFilmes">
+        <table>
+          <tr>
+            <th>Ano</th>
+            <th>Título</th>
+            <th>Gênero</th>
+            <th>Duração</th>
+            <th>Avaliação</th>
+          </tr>
+          <tbody id="listaFilmes"></tbody>
+        </table>
+      </div>
+      <div id="tbSeries">
+        <table>
+          <tr>
+            <th>Ano</th>
+            <th>Título</th>
+            <th>Gênero</th>
+            <th>Temporadas</th>
+            <th>Episódios</th>
+            <th>Avaliação</th>
+          </tr>
+          <tbody id="listaSeries"></tbody>
+        </table>
+      </div>
+    </main>
+    <footer>
+      <img src="IFTM.png" alt="" srcset="" />
+      <h2>Análise e Desenvolvimento de Sistemas</h2>
+      <h2>Campus Uberaba Parque Tecnológico</h2>
+    </footer>
+    <script src="filmes.js"></script>
+    <script src="series.js"></script>
+    <script defer src="main.js"></script>
+  </body>
+</html>

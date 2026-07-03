@@ -1,0 +1,43 @@
+       header {
+           color: #fff;
+           padding: 4px;
+           text-align: center;
+           background-color: #0A6B6B;
+       }
+
+       footer {
+           color: #0A6B6B;
+           padding: 4px;
+           text-align: center;
+           background-color: #F7F7F7;
+       }
+
+       body {
+           text-align: center;
+       }
+
+       table,
+       th,
+       td {
+           border-collapse: collapse;
+           padding: 10px;
+           border: 1px solid #0A6B6B;
+       }
+
+       table {
+           width: 50% !important;
+           margin: auto;
+       }
+
+       th {
+           background-color: #F7F7F7;
+           text-align: center;
+       }
+
+       td {
+           text-align: center;
+       }
+
+       .entradaDados {
+           text-align: left;
+       }

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Primeira Avaliação</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script src="filmes.js"></script>
+    <script src="series.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h2>Linguagem de Script para Web</h2>
+      <h3>Primeira Avaliação - dd/mm/aaaa</h3>
+      <h4>Aluno: Fulano de Tal</h4>
+    </header>
+    <main>
+      <section id="sBotoes">
+        <br />
+        <button id="btnQuestao1" onclick="Questao1()">Filmes</button
+        >&nbsp;&nbsp;
+        <button id="btnQuestao2" onclick="Questao2()">Séries</button
+        >&nbsp;&nbsp;
+        <button id="btnEstatistica" onclick="Estatistica()">Estatistica</button
+        >&nbsp;&nbsp; <br /><br />
+      </section>
+      <b id="ordeneTitulo">Ordene:</b>
+      <section id="ordenacaoBotoes">
+        <br />
+        <button id="btnAnoCrescente" onclick="OrdenaAnoCrescente()">
+          Ano (Crescente)</button
+        >&nbsp;&nbsp;
+        <button id="btnAnoDecresente" onclick="OrdenaAnoDecrescente()">
+          Ano (Decresente)</button
+        >&nbsp;&nbsp;
+        <button id="btnTituloCrescente" onclick="OrdenaTituloCrescente()">
+          Título (Crescente)</button
+        >&nbsp;&nbsp;
+        <button id="btnTituloDecrescente" onclick="OrdenaTituloDecrescente()">
+          Título (Decresente)</button
+        >&nbsp;&nbsp; <br /><br />
+      </section>
+
+      <section id="sResolucao">
+        <div id="divQuestao1">
+          <div id="divTabelaFilmes"></div>
+        </div>
+        <div id="divQuestao2">
+          <div id="divTabelaSeries"></div>
+        </div>
+        <div id="divQuestaoEstatistica">
+          <div id="divTabelaEstatistica"></div>
+        </div>
+        <br /><br />
+      </section>
+    </main>
+    <footer>
+      <img height="80px" width="auto" src="IFTM.png" />
+      <div>
+        <p><b>Análise e Desenvolvimento de Sistemas</b></p>
+        <p><b>Campus Uberaba Parque Tecnológico</b></p>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
