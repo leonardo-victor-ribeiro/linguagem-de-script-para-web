@@ -1,0 +1,17 @@
+header {
+  text-align: center;
+}
+
+nav {
+  text-align: start;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+footer {
+  text-align: center;
+}
